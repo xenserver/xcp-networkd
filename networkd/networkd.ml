@@ -77,7 +77,7 @@ let setup_coverage_profiling name =
   in try 
     ignore (Sys.getenv "BISECT_FILE") 
   with Not_found ->
-    Unix.putenv "BISECT_FILE" (tmpdir // Printf.sprintf "bisect-%s" name)
+    Unix.putenv "BISECT_FILE" (tmpdir // Printf.sprintf "bisect-%s-" name)
  
 let start server =
 	Network_monitor_thread.start ();
@@ -104,6 +104,7 @@ let doc = String.concat "\n" [
 ]
 
 let _ =
+  setup_coverage_profiling "networkd";
 	begin match Xcp_service.configure2
 		~name:Sys.argv.(0)
 		~version:Version.version
@@ -113,8 +114,6 @@ let _ =
 		Printf.fprintf stderr "%s\n" m;
 		exit 1
 	end;
-
-  setup_coverage_profiling Sys.argv.(0);
 
 	let server = Xcp_service.make
 		~path:!Network_interface.default_path
