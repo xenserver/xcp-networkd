@@ -31,6 +31,9 @@ let monitor_blacklist = ref [
 	"xapi";
 	"ovs-system";
 	"xenapi";
+	"lo";
+	"bond";
+	"pvs";
 ]
 
 let xapi_rpc request =
