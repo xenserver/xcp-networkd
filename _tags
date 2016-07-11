@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 6a8937157d81341f64a601d75a86be7f)
+# DO NOT EDIT (digest: 8e760d7ce1e3cd274d4efa9d6f339fdb)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -87,14 +87,7 @@ true: annot, bin_annot
 <test/network_test.{native,byte}>: pkg_xcp.network
 <test/network_test.{native,byte}>: use_networklibs
 <test/network_test.{native,byte}>: use_profiling
-<test/*.ml{,i,y}>: pkg_forkexec
 <test/*.ml{,i,y}>: pkg_oUnit
-<test/*.ml{,i,y}>: pkg_rpclib
-<test/*.ml{,i,y}>: pkg_stdext
-<test/*.ml{,i,y}>: pkg_threads
-<test/*.ml{,i,y}>: pkg_xcp-inventory
-<test/*.ml{,i,y}>: pkg_xcp.network
-<test/*.ml{,i,y}>: use_networklibs
 <test/*.ml{,i,y}>: use_profiling
 # Executable cli
 <cli/network_cli.{native,byte}>: pkg_cmdliner
@@ -117,5 +110,20 @@ true: annot, bin_annot
 <cli/*.ml{,i,y}>: pkg_xcp.network
 <cli/*.ml{,i,y}>: use_networklibs
 <cli/*.ml{,i,y}>: use_profiling
+# Executable jsonrpc_dummy
+<test/jsonrpc_dummy.{native,byte}>: pkg_forkexec
+<test/jsonrpc_dummy.{native,byte}>: pkg_rpclib
+<test/jsonrpc_dummy.{native,byte}>: pkg_stdext
+<test/jsonrpc_dummy.{native,byte}>: pkg_threads
+<test/jsonrpc_dummy.{native,byte}>: pkg_xcp-inventory
+<test/jsonrpc_dummy.{native,byte}>: pkg_xcp.network
+<test/jsonrpc_dummy.{native,byte}>: use_networklibs
+<test/*.ml{,i,y}>: pkg_forkexec
+<test/*.ml{,i,y}>: pkg_rpclib
+<test/*.ml{,i,y}>: pkg_stdext
+<test/*.ml{,i,y}>: pkg_threads
+<test/*.ml{,i,y}>: pkg_xcp-inventory
+<test/*.ml{,i,y}>: pkg_xcp.network
+<test/*.ml{,i,y}>: use_networklibs
 # OASIS_STOP
 
